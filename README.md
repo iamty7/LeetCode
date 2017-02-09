@@ -1,0 +1,2 @@
+Practice everyday!
+Fighting!
