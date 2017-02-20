@@ -84,6 +84,8 @@
 #Java.gitignore
 
 *.class
+*.project
+*.classpath
 
 # Log file
 *.log
