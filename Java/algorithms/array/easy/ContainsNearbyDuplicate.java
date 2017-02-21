@@ -23,7 +23,7 @@ public class ContainsNearbyDuplicate {
 	}
 
 	public boolean solution2(int[] nums, int k) {
-		// Your runtime beats 80.00% of java submissions.
+		// Your runtime beats 80.00% of java submissions. Runtime 15ms
 		if (nums.length <= 1 || k <= 0) {
 			return false;
 		}
