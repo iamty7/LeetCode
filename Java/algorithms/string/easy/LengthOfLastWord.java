@@ -32,9 +32,9 @@ public class LengthOfLastWord {
 	public int solution2(String s) {
 		// Use java method
 		// Your runtime beats 73.32% of java submissions. Runtime 5ms
-		String trimedStr = s.trim();
-		return trimedStr.lastIndexOf(' ') == -1 ? (trimedStr.length() != 0 ? trimedStr.length() : 0)
-				: (trimedStr.length() - trimedStr.lastIndexOf(' ') - 1);
+		s = s.trim();
+		int lastIndex = s.lastIndexOf(' ') + 1;
+		return s.length() - lastIndex;
 
 	}
 }
