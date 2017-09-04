@@ -89,6 +89,8 @@
 Maintest.java
 Practice.java
 
+bin/
+
 # Log file
 *.log
 

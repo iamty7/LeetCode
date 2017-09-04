@@ -47,4 +47,37 @@ public class ThreeSum {
 		}
 		return list;
 	}
+
+	public List<List<Integer>> threeSum2(int[] nums) {
+		// Your runtime beats 28.82 % of java submissions. Runtime 96ms
+		// Slightly improved from solution1
+		List<List<Integer>> ret = new LinkedList<>();
+		Arrays.sort(nums);
+		for (int i = 0; i < nums.length - 2; i++) {
+			int j = i + 1, k = nums.length - 1;
+			while (j < k) {
+				int mid = (j + k) / 2;
+				if (nums[i] + nums[j] + nums[k] == 0) {
+					ret.add(Arrays.asList(nums[i], nums[j], nums[k]));
+					while (j < k && nums[j] == nums[j + 1])
+						j++;
+					while (j < k && nums[k] == nums[k - 1])
+						k--;
+					j++;
+					k--;
+				} else if (nums[j] + nums[k] > -nums[i]) {
+					k--;
+					if (nums[mid] + nums[j] > -nums[i])
+						k = mid - 1;
+				} else {
+					j++;
+					if (nums[k] + nums[mid] < -nums[i])
+						j = mid + 1;
+				}
+			}
+			while (i < nums.length - 2 && nums[i] == nums[i + 1])
+				i++;
+		}
+		return ret;
+	}
 }
