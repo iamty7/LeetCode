@@ -41,4 +41,29 @@ public class ThreeSumClosest {
 		}
 		return sum;
 	}
+	
+	public int threeSumClosest2(int[] nums, int target) {
+		//Your runtime beats 75.82 % of java submissions. 21ms
+		Arrays.sort(nums);
+		int ret = nums[0]+nums[1]+nums[2];
+		int tmpDist = Integer.MAX_VALUE;
+		for (int i = 0; i < nums.length - 2; i++) {
+			int j = i + 1, k = nums.length - 1;
+			while (j < k) {
+				if (Math.abs(nums[i] + nums[j] + nums[k] - target) < tmpDist) {
+					tmpDist = Math.abs(nums[i] + nums[j] + nums[k] - target);
+					ret = nums[i] + nums[j] + nums[k];
+					if (ret == target)
+						return target;
+				}
+				if (nums[i] + nums[j] + nums[k] > target)
+					k--;
+				else
+					j++;
+			}
+			while (i < nums.length - 2 && nums[i] == nums[i + 1])
+				i++;
+		}
+		return ret;
+	}
 }
