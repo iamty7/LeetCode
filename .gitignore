@@ -86,6 +86,8 @@
 *.class
 *.project
 *.classpath
+Maintest.java
+Practice.java
 
 # Log file
 *.log
