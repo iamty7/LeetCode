@@ -45,4 +45,25 @@ public class RemoveDuplicatesFromSortedArrayII {
 				nums[i++] = n;
 		return i;
 	}
+	
+	public int removeDuplicates3(int[] nums) {
+		// Your runtime beats 24.33 % of java submissions. Runtime 1ms
+		boolean twice = false;
+		int i = 0, len = nums.length;
+		if (len < 3)
+			return len;
+		for (int j = 1; j < nums.length; j++) {
+			if (nums[j] == nums[i]) {
+				if (twice == true) {
+					len--;
+					continue;
+				} else
+					twice = true;
+			} else
+				twice = false;
+			i++;
+			nums[i] = nums[j];
+		}
+		return len;
+	}
 }
