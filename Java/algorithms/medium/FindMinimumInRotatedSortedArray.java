@@ -50,4 +50,23 @@ public class FindMinimumInRotatedSortedArray {
 		}
 		return Math.min(nums[left], nums[right]);
 	}
+	
+	
+	public int findMin3(int[] nums) {
+		// Your runtime beats 3.11 % of java submissions. Runtime 1ms
+		// the same as 2. 
+		if (nums[0] < nums[nums.length - 1])
+			return nums[0];
+		int left = 0, right = nums.length - 1;
+		while (left != right) {
+			int mid = left + (left - right) / 2; //avoid overflow
+			if (nums[mid] > nums[right]) {
+				left = mid + 1;
+				continue;
+			} else {
+				right = mid;
+			}
+		}
+		return nums[left];
+	}
 }
